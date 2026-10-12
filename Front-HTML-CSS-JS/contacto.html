@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mesa de Ayuda y Contacto | CoreCredential</title>
+  <meta name="description" content="Centro de asistencia, mesa de ayuda y soporte técnico para el sistema de carnetización CoreCredential.">
+
+  <!-- Tipografías de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Estilos CSS Desacoplados -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <!-- Encabezado -->
+  <header class="site-header">
+    <div class="container navbar-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="16" rx="3"/>
+            <circle cx="9" cy="10" r="2"/>
+            <line x1="15" y1="8" x2="17" y2="8"/>
+            <line x1="15" y1="12" x2="17" y2="12"/>
+            <line x1="7" y1="16" x2="17" y2="16"/>
+          </svg>
+        </div>
+        <span>CoreCredential</span>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="emitir-carnet.html" class="nav-link">Emitir Carnet</a>
+        <a href="verificar-qr.html" class="nav-link">Verificador QR</a>
+        <a href="contacto.html" class="nav-link active">Mesa de Ayuda</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="emitir-carnet.html" class="btn btn-primary btn-sm">Emitir Carnet</a>
+        <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Abrir menú">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <nav class="mobile-nav" id="mobileNav">
+      <a href="index.html">Inicio</a>
+      <a href="emitir-carnet.html">Emitir Carnet</a>
+      <a href="verificar-qr.html">Verificador QR</a>
+      <a href="contacto.html">Mesa de Ayuda</a>
+    </nav>
+  </header>
+
+  <!-- Contenido -->
+  <main class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Soporte Técnico Especializado</span>
+        <h1 class="section-title">Mesa de Ayuda y Contacto Institucional</h1>
+        <p class="section-desc">
+          ¿Tienes inquietudes sobre la emisión de tu carnet, reporte de pérdida o validación de accesos? Envíanos tu solicitud.
+        </p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr; gap:32px; max-width:860px; margin:0 auto;" class="form-row-2">
+        <!-- Formulario de Solicitud -->
+        <div class="form-panel">
+          <h2 style="font-size:1.35rem; margin-bottom:8px;">Crear Ticket de Asistencia</h2>
+          <p style="font-size:0.85rem; color:var(--color-text-muted); margin-bottom:16px;">
+            Completa los datos y nuestro equipo de soporte responderá a tu requerimiento.
+          </p>
+
+          <form id="contactTicketForm" onsubmit="handleTicketSubmit(event)">
+            <div class="form-group">
+              <label class="form-label" for="ticketName">Nombre Completo *</label>
+              <input type="text" id="ticketName" class="form-control" required placeholder="Ej. Alejandro Morales">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="ticketEmail">Correo Electrónico *</label>
+              <input type="email" id="ticketEmail" class="form-control" required placeholder="correo@empresa.com">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="ticketType">Tipo de Solicitud</label>
+              <select id="ticketType" class="form-control">
+                <option value="RENOVACION">Renovación de Carnet Digital</option>
+                <option value="PERDIDA">Reporte de Pérdida o Bloqueo</option>
+                <option value="ERROR_QR">Incidente con Lectura de Código QR</option>
+                <option value="CONSULTA">Consulta General de Carnetización</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="ticketMsg">Descripción del Caso *</label>
+              <textarea id="ticketMsg" class="form-control" rows="4" required placeholder="Describe detalladamente el problema o requerimiento..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">
+              Enviar Solicitud a Mesa de Ayuda
+            </button>
+          </form>
+        </div>
+
+        <!-- Información de Mesa de Ayuda y Procedimiento -->
+        <div style="background-color:var(--color-bg-card); border:1px solid var(--color-border); border-radius:var(--radius-xl); padding:24px; box-shadow:var(--shadow-sm); display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <h3 style="font-size:1.35rem; margin-bottom:8px;">Canales de Atención Directa</h3>
+            <p style="font-size:0.85rem; color:var(--color-text-muted); margin-bottom:20px;">
+              Información de contacto oficial de la Dirección de Tecnología:
+            </p>
+
+            <div style="display:flex; flex-direction:column; gap:14px; font-size:0.88rem;">
+              <div>
+                <strong>🏢 Empresa Gestora:</strong><br>
+                <span>Innovatech Global - División de Seguridad</span>
+              </div>
+              <div>
+                <strong>✉️ Correo de Soporte:</strong><br>
+                <span>soporte@corecredential.com</span>
+              </div>
+              <div>
+                <strong>⏰ Horario de Atención:</strong><br>
+                <span>Lunes a Viernes: 8:00 AM - 6:00 PM</span>
+              </div>
+              <div>
+                <strong>⏱️ Tiempo de Respuesta:</strong><br>
+                <span>Menor a 4 horas hábiles</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="background-color:var(--color-primary-light); padding:16px; border-radius:var(--radius-md); margin-top:24px; border:1px solid rgba(30,64,175,0.15);">
+            <strong style="color:var(--color-primary); font-size:0.85rem; display:block; margin-bottom:4px;">
+              ¿Perdiste tu dispositivo móvil?
+            </strong>
+            <p style="font-size:0.78rem; color:var(--color-text-body); margin:0;">
+              Puedes suspender de forma preventiva tu carnet digital solicitándolo de inmediato a la mesa de ayuda para evitar ingresos no autorizados.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Procedimiento de Atención (Criterio 4: Lista Ordenada <ol>) -->
+      <section style="margin-top:60px; padding:32px; background-color:#FFFFFF; border-radius:var(--radius-xl); border:1px solid var(--color-border);">
+        <h3 style="margin-bottom:12px;">Flujo de Atención de Solicitudes y Tickets</h3>
+        <p style="color:var(--color-text-muted); font-size:0.9rem; margin-bottom:20px;">
+          Ciclo de vida ordenado para la gestión de incidentes y novedades de carnetización:
+        </p>
+
+        <ol class="ordered-steps-list">
+          <li>
+            <h4>Radicación del Requerimiento</h4>
+            <p>El titular envía el formulario con sus datos institucionales y detalle del caso.</p>
+          </li>
+          <li>
+            <h4>Asignación y Verificación Técnica</h4>
+            <p>El analista de soporte comprueba la identidad del usuario en la base de datos de credenciales.</p>
+          </li>
+          <li>
+            <h4>Ejecución de la Acción Correctiva</h4>
+            <p>Se emite el nuevo carnet digital, se actualiza la vigencia o se inhabilita el código QR previo.</p>
+          </li>
+          <li>
+            <h4>Notificación y Cierre del Caso</h4>
+            <p>El usuario recibe confirmación por correo y su nuevo carnet queda operativo al instante.</p>
+          </li>
+        </ol>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <div>&copy; 2026 CoreCredential - Innovatech Global. Todos los derechos reservados.</div>
+      <div>Desarrollo Front-End &bull; Autor: <strong>Jeison Molina</strong></div>
+    </div>
+  </footer>
+
+  <div class="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    function handleTicketSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('ticketName').value.trim();
+      showToast(`Ticket registrado con éxito para ${name}. Nos contactaremos a la brevedad.`, 'success');
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>

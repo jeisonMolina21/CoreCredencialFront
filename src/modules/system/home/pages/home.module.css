@@ -1,0 +1,171 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.statCard {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  border: 1px solid #F1F5F9;
+}
+
+.statIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.statInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.statLabel {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.statValue {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--secondary);
+}
+
+.mainGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .mainGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sectionTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--secondary);
+  margin-bottom: 1.5rem;
+}
+
+.actionsSection, .activitySection {
+  background: white;
+  padding: 2rem;
+  border-radius: 24px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border: 1px solid #F1F5F9;
+}
+
+.actionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.actionCard {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  background: #F8FAFC;
+  border: 1px solid #F1F5F9;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.actionIcon {
+  width: 40px;
+  height: 40px;
+  background: white;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+.actionText {
+  flex: 1;
+}
+
+.actionText h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+}
+
+.actionText p {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.actionArrow {
+  color: var(--text-muted);
+  opacity: 0.5;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.viewAllBtn {
+  font-size: 0.875rem;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.activityList {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.activityItem {
+  display: flex;
+  gap: 1rem;
+  position: relative;
+}
+
+.activityBullet {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.activityContent p {
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.activityContent span {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}

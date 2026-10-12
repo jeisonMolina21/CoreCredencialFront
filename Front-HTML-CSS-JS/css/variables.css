@@ -1,0 +1,97 @@
+/**
+ * ==============================================================================
+ * PROYECTO: CoreCredential - Sistema de Carnetización y Credenciales Digitales
+ * ARCHIVO: variables.css
+ * DESCRIPCIÓN: Tokens de diseño corporativo: paleta de colores, tipografía,
+ *              escalas de espaciado, sombras y radios de borde.
+ * AUTOR: Jeison Molina
+ * ==============================================================================
+ */
+
+:root {
+  /* ==========================================================================
+     1. PALETA CROMÁTICA CORPORATIVA (Tecnología & Seguridad Digital)
+     ========================================================================== */
+  /* Azul Primario / Identidad Tecnológica */
+  --color-primary: #1E40AF;        /* Azul Cobalto */
+  --color-primary-hover: #1D4ED8;  /* Azul Real */
+  --color-primary-dark: #0F172A;   /* Azul Marino Profundo */
+  --color-primary-light: #EFF6FF;  /* Azul Hielo Suave */
+
+  /* Colores de Acento y Verificación */
+  --color-accent: #06B6D4;         /* Cian Digital */
+  --color-accent-hover: #0891B2;
+  --color-accent-light: #ECFEFF;
+
+  /* Superficies y Fondos */
+  --color-bg-main: #F8FAFC;        /* Gris Nieve Limpio */
+  --color-bg-card: #FFFFFF;        /* Blanco Puro */
+  --color-bg-alt: #F1F5F9;         /* Gris Suave */
+
+  /* Jerarquía de Texto (WCAG 2.1 AAA - Alto Contraste) */
+  --color-text-title: #0F172A;     /* Gris Carbón Oscuro */
+  --color-text-body: #334155;      /* Gris Pizarra */
+  --color-text-muted: #64748B;     /* Gris Atenuado */
+  --color-text-white: #FFFFFF;
+
+  /* Bordes */
+  --color-border: #E2E8F0;
+  --color-border-dark: #CBD5E1;
+
+  /* Estados de Credencial */
+  --color-status-active: #10B981;   /* Verde Esmeralda (Activo) */
+  --color-status-active-bg: #ECFDF5;
+  --color-status-review: #F59E0B;   /* Ámbar (En Revisión) */
+  --color-status-review-bg: #FFFBEB;
+  --color-status-expired: #EF4444;  /* Rojo (Vencido) */
+  --color-status-expired-bg: #FEF2F2;
+
+  /* ==========================================================================
+     2. JERARQUÍA TIPOGRÁFICA
+     ========================================================================== */
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+  --font-mono: 'SF Mono', Consolas, Monaco, monospace;
+
+  /* Tamaños de Fuente */
+  --text-xs: 0.75rem;    /* 12px */
+  --text-sm: 0.875rem;   /* 14px */
+  --text-base: 1rem;     /* 16px */
+  --text-lg: 1.125rem;   /* 18px */
+  --text-xl: 1.25rem;    /* 20px */
+  --text-2xl: 1.5rem;    /* 24px */
+  --text-3xl: 1.875rem;  /* 30px */
+  --text-4xl: 2.25rem;   /* 36px */
+
+  /* ==========================================================================
+     3. ESPACIADOS Y RADIOS DE BORDE
+     ========================================================================== */
+  --spacing-1: 0.25rem;  /* 4px */
+  --spacing-2: 0.5rem;   /* 8px */
+  --spacing-3: 0.75rem;  /* 12px */
+  --spacing-4: 1rem;     /* 16px */
+  --spacing-6: 1.5rem;   /* 24px */
+  --spacing-8: 2rem;     /* 32px */
+  --spacing-12: 3rem;    /* 48px */
+  --spacing-16: 4rem;    /* 64px */
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  /* ==========================================================================
+     4. SOMBRAS Y ELEVACIONES (Box Shadows)
+     ========================================================================== */
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.08);
+  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 10px 25px rgba(15, 23, 42, 0.12);
+  --shadow-card: 0 8px 30px rgba(30, 64, 175, 0.15);
+
+  /* Transición fluida */
+  --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Ancho máximo */
+  --container-max-width: 1180px;
+}

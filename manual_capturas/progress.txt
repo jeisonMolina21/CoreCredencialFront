@@ -1,0 +1,45 @@
+=== INICIANDO CAPTURA MASIVA MANUAL DE USUARIO ===
+[12:16:45 p. m.] Conectando Puppeteer a Chrome...
+[12:16:45 p. m.] 
+--- SECCIÓN 1: VISTAS PÚBLICAS ---
+[12:16:47 p. m.] [OK] Capturado: 01_public_landing_hero.png
+[12:16:48 p. m.] [OK] Capturado: 02_public_landing_servicios.png
+[12:16:49 p. m.] [OK] Capturado: 03_public_landing_planes.png
+[12:16:50 p. m.] [OK] Capturado: 04_public_landing_despliegue.png
+[12:16:51 p. m.] [OK] Capturado: 05_public_landing_cta.png
+[12:16:52 p. m.] [OK] Capturado: 06_public_blog.png
+[12:16:53 p. m.] [OK] Capturado: 07_auth_login.png
+[12:16:54 p. m.] [OK] Capturado: 08_auth_registro_paso1.png
+[12:16:54 p. m.] [OK] Capturado: 09_auth_pago_aprobado.png
+[12:16:54 p. m.] 
+--- SECCIÓN 2: PANEL SUPERADMIN ---
+[12:16:55 p. m.] [OK] Capturado: 10_system_dashboard.png
+[12:16:56 p. m.] [OK] Capturado: 11_system_empresas.png
+[12:16:57 p. m.] [OK] Capturado: 12_system_modal_crear_empresa.png
+[12:16:58 p. m.] [OK] Capturado: 13_system_planes.png
+[12:16:58 p. m.] [OK] Capturado: 14_system_suscripciones.png
+[12:16:59 p. m.] [OK] Capturado: 15_system_usuarios.png
+[12:17:00 p. m.] [OK] Capturado: 16_system_roles.png
+[12:17:00 p. m.] [OK] Capturado: 17_system_parametros_banners.png
+[12:17:00 p. m.] 
+--- SECCIÓN 3: PANEL EMPRESA ---
+[12:17:01 p. m.] [OK] Capturado: 18_company_dashboard.png
+[12:17:02 p. m.] [OK] Capturado: 19_company_sedes.png
+[12:17:03 p. m.] [OK] Capturado: 20_company_modal_crear_sede.png
+[12:17:03 p. m.] [OK] Capturado: 21_company_areas.png
+[12:17:04 p. m.] [OK] Capturado: 22_company_modal_crear_area.png
+[12:17:05 p. m.] [OK] Capturado: 23_company_cargos.png
+[12:17:06 p. m.] [OK] Capturado: 24_company_modal_crear_cargo.png
+[12:17:07 p. m.] [OK] Capturado: 25_company_colaboradores.png
+[12:17:08 p. m.] [OK] Capturado: 26_company_modal_colaborador.png
+[12:17:08 p. m.] [OK] Capturado: 27_company_plantillas.png
+[12:17:09 p. m.] [OK] Capturado: 28_company_disenador_canvas.png
+[12:17:10 p. m.] [OK] Capturado: 29_company_carnetizacion.png
+[12:17:11 p. m.] [OK] Capturado: 30_company_branding_parametros.png
+[12:17:12 p. m.] [OK] Capturado: 31_company_suscripcion.png
+[12:17:12 p. m.] 
+=============================================================
+[12:17:12 p. m.] 🎉 ¡TODAS LAS 31 CAPTURAS HAN SIDO COMPLETADAS CON ÉXITO!
+[12:17:12 p. m.] Directorio de destino: F:\personal\CoreCredential-Front-main\manual_capturas
+[12:17:12 p. m.] =============================================================
+

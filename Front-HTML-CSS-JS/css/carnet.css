@@ -1,0 +1,225 @@
+/**
+ * ==============================================================================
+ * PROYECTO: CoreCredential - Sistema de Carnetización y Credenciales Digitales
+ * ARCHIVO: carnet.css
+ * DESCRIPCIÓN: Estilos de la Credencial / Carnet Digital en tiempo real:
+ *              Dimensiones de tarjeta estándar (CR-80), diseño holográfico,
+ *              código QR verificable, estados cromáticos y animaciones.
+ * AUTOR: Jeison Molina
+ * ==============================================================================
+ */
+
+/* ==========================================================================
+   1. CONTENEDOR DE EMISIÓN DE CARNET
+   ========================================================================== */
+.carnet-generator-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-8);
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .carnet-generator-layout {
+    grid-template-columns: 1.1fr 1fr;
+  }
+}
+
+/* ==========================================================================
+   2. TARJETA DIGITAL (ID CARD CR-80)
+   ========================================================================== */
+.carnet-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: sticky;
+  top: 90px;
+}
+
+.carnet-card {
+  width: 330px;
+  max-width: 100%;
+  min-height: 520px;
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carnet-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(30, 64, 175, 0.2);
+}
+
+/* Cabecera del Carnet con Gradiente Tecnológico */
+.carnet-header {
+  background: linear-gradient(135deg, var(--color-primary), #0284C7);
+  color: #FFFFFF;
+  padding: 16px 20px 32px;
+  text-align: center;
+  position: relative;
+}
+
+.carnet-org-name {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  opacity: 0.95;
+}
+
+.carnet-type-badge {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* Banda de Seguridad y Foto */
+.carnet-photo-container {
+  display: flex;
+  justify-content: center;
+  margin-top: -30px;
+  position: relative;
+  z-index: 2;
+}
+
+.carnet-photo-frame {
+  width: 100px;
+  height: 100px;
+  border-radius: var(--radius-full);
+  border: 4px solid #FFFFFF;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  background-color: var(--color-bg-alt);
+}
+
+.carnet-photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Cuerpo de Datos del Carnet */
+.carnet-body {
+  padding: 12px 24px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.carnet-holder-name {
+  font-size: 1.25rem;
+  color: var(--color-text-title);
+  margin-bottom: 2px;
+}
+
+.carnet-holder-role {
+  font-size: 0.85rem;
+  color: var(--color-primary);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* Rejilla de Metadatos */
+.carnet-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 12px;
+  background-color: var(--color-bg-alt);
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.meta-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.meta-field-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.meta-field-value {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-text-title);
+  font-family: var(--font-mono);
+}
+
+/* Código QR */
+.carnet-qr-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.qr-code-box {
+  width: 90px;
+  height: 90px;
+  background-color: #FFFFFF;
+  padding: 6px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.qr-code-box svg {
+  width: 100%;
+  height: 100%;
+}
+
+.carnet-security-hash {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--color-text-muted);
+  margin-top: 4px;
+}
+
+/* Pie del Carnet con Banda de Estado */
+.carnet-footer {
+  padding: 6px 16px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background-color: var(--color-status-active);
+  color: #FFFFFF;
+}
+
+.carnet-footer.status-review {
+  background-color: var(--color-status-review);
+}
+
+.carnet-footer.status-expired {
+  background-color: var(--color-status-expired);
+}
+
+/* Acciones bajo el carnet */
+.carnet-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}

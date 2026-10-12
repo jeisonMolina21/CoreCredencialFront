@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verificador QR de Credenciales | CoreCredential</title>
+  <meta name="description" content="Módulo de validación y escáner de códigos QR para verificar la autenticidad y vigencia de carnets digitales.">
+
+  <!-- Tipografías de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Estilos CSS Desacoplados -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <!-- Encabezado -->
+  <header class="site-header">
+    <div class="container navbar-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="16" rx="3"/>
+            <circle cx="9" cy="10" r="2"/>
+            <line x1="15" y1="8" x2="17" y2="8"/>
+            <line x1="15" y1="12" x2="17" y2="12"/>
+            <line x1="7" y1="16" x2="17" y2="16"/>
+          </svg>
+        </div>
+        <span>CoreCredential</span>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="emitir-carnet.html" class="nav-link">Emitir Carnet</a>
+        <a href="verificar-qr.html" class="nav-link active">Verificador QR</a>
+        <a href="contacto.html" class="nav-link">Mesa de Ayuda</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="emitir-carnet.html" class="btn btn-primary btn-sm">Emitir Nuevo</a>
+        <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Abrir menú">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <nav class="mobile-nav" id="mobileNav">
+      <a href="index.html">Inicio</a>
+      <a href="emitir-carnet.html">Emitir Carnet</a>
+      <a href="verificar-qr.html">Verificador QR</a>
+      <a href="contacto.html">Mesa de Ayuda</a>
+    </nav>
+  </header>
+
+  <!-- Contenido -->
+  <main class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Control de Acceso y Seguridad</span>
+        <h1 class="section-title">Validador de Credenciales y Códigos QR</h1>
+        <p class="section-desc">
+          Verifica en tiempo real si un carnet digital presentado en el control de acceso es auténtico y se encuentra vigente en el sistema.
+        </p>
+      </div>
+
+      <!-- Tarjeta del Verificador -->
+      <div class="verifier-card">
+        <!-- Icono de Escáner -->
+        <div style="width:56px; height:56px; border-radius:50%; background-color:var(--color-primary-light); color:var(--color-primary); display:flex; align-items:center; justify-content:center; margin:0 auto 16px;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 7V5a2 2 0 0 1 2-2h2"/>
+            <path d="M17 3h2a2 2 0 0 1 2 2v2"/>
+            <path d="M21 17v2a2 2 0 0 1-2 2h-2"/>
+            <path d="M7 21H5a2 2 0 0 1-2-2v-2"/>
+            <line x1="7" y1="12" x2="17" y2="12"/>
+          </svg>
+        </div>
+
+        <h2 style="font-size:1.4rem; margin-bottom:8px;">Validar Autenticidad de Credencial</h2>
+        <p style="font-size:0.9rem; color:var(--color-text-muted); margin-bottom:20px;">
+          Ingresa el código único del carnet (ej. CC-2026-001) o el número de documento de identidad del titular:
+        </p>
+
+        <form id="verifierForm" style="display:flex; gap:8px; margin-bottom:16px;">
+          <input type="text" id="verifyCodeInput" class="form-control" placeholder="Ej. CC-2026-001 o 1018234567" required style="font-size:1rem; text-transform:uppercase;">
+          <button type="submit" class="btn btn-primary">
+            Validar
+          </button>
+        </form>
+
+        <!-- Botones de Prueba Rápida -->
+        <div style="text-align:left; background-color:var(--color-bg-alt); padding:10px 14px; border-radius:var(--radius-md); font-size:0.75rem;">
+          <strong style="color:var(--color-text-title);">Pruebas Rápidas de un Clic:</strong>
+          <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:6px;">
+            <button type="button" class="btn btn-outline btn-sm" data-verify-test="CC-2026-001">CC-2026-001 (Activo)</button>
+            <button type="button" class="btn btn-outline btn-sm" data-verify-test="CC-2026-002">CC-2026-002 (Activo)</button>
+            <button type="button" class="btn btn-outline btn-sm" data-verify-test="CC-2026-003">CC-2026-003 (En Revisión)</button>
+            <button type="button" class="btn btn-outline btn-sm" data-verify-test="CC-9999-999">Código Inválido</button>
+          </div>
+        </div>
+
+        <!-- Caja de Resultado Dinámico -->
+        <div id="verifyResultBox" class="verifier-result"></div>
+      </div>
+
+      <!-- Protocolo de Validación (Criterio 4: Lista Ordenada <ol>) -->
+      <section style="margin-top:60px; padding:32px; background-color:#FFFFFF; border-radius:var(--radius-xl); border:1px solid var(--color-border);">
+        <h3 style="margin-bottom:12px;">Protocolo de Seguridad para Validación de Acceso</h3>
+        <p style="color:var(--color-text-muted); font-size:0.9rem; margin-bottom:20px;">
+          Instrucciones para el personal de vigilancia, torniquetes y puntos de control de acceso:
+        </p>
+
+        <ol class="ordered-steps-list">
+          <li>
+            <h4>Solicitar Presentación del Carnet Digital</h4>
+            <p>Pide al usuario que abra su credencial electrónica en la pantalla de su dispositivo móvil o la tarjeta física.</p>
+          </li>
+          <li>
+            <h4>Escanear el Código QR o Digitar el Identificador</h4>
+            <p>Apunta el lector óptico al código QR o introduce el código alfanumérico en el formulario superior.</p>
+          </li>
+          <li>
+            <h4>Verificar la Coincidencia Fotográfica</h4>
+            <p>Comprueba que la fotografía desplegada en el sistema coincida con los rasgos físicos del portador.</p>
+          </li>
+          <li>
+            <h4>Confirmar la Banda Verde de Estado Activo</h4>
+            <p>Autoriza el ingreso únicamente si el sistema confirma que la credencial se encuentra en estado 'ACTIVO'.</p>
+          </li>
+        </ol>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <div>&copy; 2026 CoreCredential - Innovatech Global. Todos los derechos reservados.</div>
+      <div>Desarrollo Front-End &bull; Autor: <strong>Jeison Molina</strong></div>
+    </div>
+  </footer>
+
+  <div class="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/verificador.js"></script>
+</body>
+</html>

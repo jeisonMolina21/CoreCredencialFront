@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emisión de Carnet Digital | CoreCredential</title>
+  <meta name="description" content="Módulo interactivo de diseño, personalización y emisión de carnets digitales en tiempo real con código QR verificable.">
+
+  <!-- Tipografías de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Estilos CSS Desacoplados -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/carnet.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <!-- Encabezado -->
+  <header class="site-header">
+    <div class="container navbar-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="16" rx="3"/>
+            <circle cx="9" cy="10" r="2"/>
+            <line x1="15" y1="8" x2="17" y2="8"/>
+            <line x1="15" y1="12" x2="17" y2="12"/>
+            <line x1="7" y1="16" x2="17" y2="16"/>
+          </svg>
+        </div>
+        <span>CoreCredential</span>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="emitir-carnet.html" class="nav-link active">Emitir Carnet</a>
+        <a href="verificar-qr.html" class="nav-link">Verificador QR</a>
+        <a href="contacto.html" class="nav-link">Mesa de Ayuda</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="verificar-qr.html" class="btn btn-outline btn-sm">Validar QR</a>
+        <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Abrir menú">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <nav class="mobile-nav" id="mobileNav">
+      <a href="index.html">Inicio</a>
+      <a href="emitir-carnet.html">Emitir Carnet</a>
+      <a href="verificar-qr.html">Verificador QR</a>
+      <a href="contacto.html">Mesa de Ayuda</a>
+    </nav>
+  </header>
+
+  <!-- Contenido Principal -->
+  <main class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Componente Front-End Interactivo</span>
+        <h1 class="section-title">Generador de Carnet Digital en Tiempo Real</h1>
+        <p class="section-desc">
+          Modifica los campos del formulario o carga uno de los perfiles de demostración para observar cómo se actualiza la credencial electrónica instantáneamente.
+        </p>
+      </div>
+
+      <!-- Layout: Formulario a la izquierda y Live Carnet a la derecha -->
+      <div class="carnet-generator-layout">
+        <!-- Columna Izquierda: Formulario de Datos -->
+        <div class="form-panel">
+          <!-- Botones de Perfiles Rápidos -->
+          <div style="background-color:var(--color-bg-alt); padding:12px; border-radius:var(--radius-md); margin-bottom:20px;">
+            <span style="font-size:0.75rem; font-weight:700; text-transform:uppercase; color:var(--color-text-muted); display:block; margin-bottom:8px;">
+              Perfiles Rápidos de Prueba (1 Clic):
+            </span>
+            <div style="display:flex; flex-wrap:wrap; gap:6px;">
+              <button type="button" class="btn btn-outline btn-sm" data-load-profile="CC-2026-001">
+                Alejandro Morales
+              </button>
+              <button type="button" class="btn btn-outline btn-sm" data-load-profile="CC-2026-002">
+                Camila Restrepo
+              </button>
+              <button type="button" class="btn btn-outline btn-sm" data-load-profile="CC-2026-003">
+                David Quintana
+              </button>
+            </div>
+          </div>
+
+          <form id="carnetForm">
+            <div class="form-group">
+              <label class="form-label" for="holderName">Nombre Completo del Titular *</label>
+              <input type="text" id="holderName" class="form-control" required value="Alejandro Morales" placeholder="Ej. Alejandro Morales">
+            </div>
+
+            <div class="form-row-2" style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+              <div class="form-group">
+                <label class="form-label" for="holderRole">Cargo u Ocupación *</label>
+                <input type="text" id="holderRole" class="form-control" required value="Ingeniero de Software Senior" placeholder="Ej. Desarrollador">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="holderDept">Área o Dependencia</label>
+                <input type="text" id="holderDept" class="form-control" value="Dirección de Tecnología" placeholder="Ej. Tecnología">
+              </div>
+            </div>
+
+            <div class="form-row-3" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:12px;">
+              <div class="form-group">
+                <label class="form-label" for="holderDoc">Documento *</label>
+                <input type="text" id="holderDoc" class="form-control" required value="1018234567" placeholder="Cédula / ID">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="holderCode">Código ID *</label>
+                <input type="text" id="holderCode" class="form-control" required value="CC-2026-001" placeholder="CC-2026-XXX">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="holderBlood">Grupo RH</label>
+                <input type="text" id="holderBlood" class="form-control" value="O+" placeholder="O+">
+              </div>
+            </div>
+
+            <div class="form-row-2" style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+              <div class="form-group">
+                <label class="form-label" for="holderType">Tipo de Carnet</label>
+                <select id="holderType" class="form-control">
+                  <option value="CORPORATIVO" selected>Corporativo / Empleado</option>
+                  <option value="CONTRATISTA">Contratista Externo</option>
+                  <option value="ESTUDIANTIL">Estudiantil / Académico</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="holderStatus">Estado de Credencial</label>
+                <select id="holderStatus" class="form-control">
+                  <option value="ACTIVO" selected>ACTIVO (Habilitado)</option>
+                  <option value="REVISION">EN REVISIÓN (Temporal)</option>
+                  <option value="VENCIDO">VENCIDO (Deshabilitado)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="holderPhotoInput">Cargar Fotografía de Perfil (Opcional)</label>
+              <input type="file" id="holderPhotoInput" class="form-control" accept="image/*">
+            </div>
+
+            <div style="display:flex; gap:10px; margin-top:20px;">
+              <button type="submit" class="btn btn-primary btn-block">
+                Guardar Credencial en Base Local
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Columna Derecha: Tarjeta Digital en Tiempo Real (Live ID Card) -->
+        <div class="carnet-card-wrapper">
+          <div class="carnet-card" id="digitalCardPreview">
+            <!-- Header con Degradado -->
+            <div class="carnet-header">
+              <div class="carnet-org-name">Innovatech Global</div>
+              <div class="carnet-type-badge" id="cardTypeBadge">CORPORATIVO</div>
+            </div>
+
+            <!-- Foto de Perfil Centrada -->
+            <div class="carnet-photo-container">
+              <div class="carnet-photo-frame">
+                <img id="cardPhotoImg" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=300&auto=format&fit=crop" alt="Foto del Titular">
+              </div>
+            </div>
+
+            <!-- Datos del Titular -->
+            <div class="carnet-body">
+              <h3 class="carnet-holder-name" id="cardHolderName">Alejandro Morales</h3>
+              <div class="carnet-holder-role" id="cardHolderRole">Ingeniero de Software Senior</div>
+
+              <div class="carnet-meta-grid">
+                <div class="meta-field">
+                  <span class="meta-field-label">Documento</span>
+                  <span class="meta-field-value" id="cardHolderDoc">1018234567</span>
+                </div>
+                <div class="meta-field">
+                  <span class="meta-field-label">Código ID</span>
+                  <span class="meta-field-value" id="cardHolderCode">CC-2026-001</span>
+                </div>
+                <div class="meta-field">
+                  <span class="meta-field-label">Dependencia</span>
+                  <span class="meta-field-value" id="cardHolderDept" style="font-size:0.7rem; font-family:var(--font-main);">Dirección de Tecnología</span>
+                </div>
+                <div class="meta-field">
+                  <span class="meta-field-label">RH / Sangre</span>
+                  <span class="meta-field-value" id="cardHolderBlood">O+</span>
+                </div>
+              </div>
+
+              <!-- Código QR Simulado -->
+              <div class="carnet-qr-wrap">
+                <div class="qr-code-box">
+                  <!-- QR Code Vectorial SVG -->
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#0F172A" stroke-width="2">
+                    <rect x="3" y="3" width="7" height="7"/>
+                    <rect x="14" y="3" width="7" height="7"/>
+                    <rect x="3" y="14" width="7" height="7"/>
+                    <rect x="15" y="15" width="2" height="2"/>
+                    <rect x="18" y="18" width="3" height="3"/>
+                    <rect x="18" y="14" width="3" height="2"/>
+                    <rect x="14" y="19" width="2" height="2"/>
+                  </svg>
+                </div>
+                <span class="carnet-security-hash" id="cardQrHash">HASH: 78AC9B21</span>
+              </div>
+            </div>
+
+            <!-- Banda Inferior de Estado -->
+            <div class="carnet-footer" id="cardStatusFooter">
+              ESTADO: ACTIVO
+            </div>
+          </div>
+
+          <!-- Botones de Acción de Carnet -->
+          <div class="carnet-actions">
+            <button class="btn btn-outline btn-sm" onclick="window.print()">
+              🖨️ Imprimir / Guardar Carnet
+            </button>
+            <a href="verificar-qr.html" class="btn btn-accent btn-sm">
+              🔍 Validar con Escáner
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sección de Instrucciones de Uso (Criterio 4: Lista Ordenada <ol>) -->
+      <section style="margin-top:60px; padding:32px; background-color:#FFFFFF; border-radius:var(--radius-xl); border:1px solid var(--color-border);">
+        <h3 style="margin-bottom:12px;">Instrucciones para la Expedición y Uso del Carnet</h3>
+        <p style="color:var(--color-text-muted); font-size:0.9rem; margin-bottom:20px;">
+          Guía técnica para el personal de recursos humanos y administradores del sistema:
+        </p>
+
+        <ol class="ordered-steps-list">
+          <li>
+            <h4>Diligenciar los Campos del Titular</h4>
+            <p>Escribe el nombre completo, rol oficial y número de cédula o tarjeta de identidad.</p>
+          </li>
+          <li>
+            <h4>Verificar la Previsualización Dinámica</h4>
+            <p>Observa cómo la credencial refleja cada tecla presionada sin necesidad de recargar la página.</p>
+          </li>
+          <li>
+            <h4>Seleccionar Estado de Vigencia</h4>
+            <p>Asigna 'ACTIVO' para acceso libre, 'EN REVISIÓN' para permisos provisionales o 'VENCIDO'.</p>
+          </li>
+          <li>
+            <h4>Guardar y Comprobar con el Escáner QR</h4>
+            <p>Presiona el botón de guardar y utiliza el validador QR para corroborar que el código es reconocido.</p>
+          </li>
+        </ol>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <div>&copy; 2026 CoreCredential - Innovatech Global. Todos los derechos reservados.</div>
+      <div>Desarrollo Front-End &bull; Autor: <strong>Jeison Molina</strong></div>
+    </div>
+  </footer>
+
+  <div class="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/carnet.js"></script>
+</body>
+</html>

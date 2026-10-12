@@ -1,0 +1,85 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: white;
+  border-radius: 16px;
+  border: 1px solid #F1F5F9;
+  box-shadow: var(--shadow-sm);
+}
+
+.info {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.info strong {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Botones de número de página */
+.pageBtn {
+  min-width: 36px;
+  height: 36px;
+  padding: 0 0.5rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.pageBtn:hover {
+  background: #F1F5F9;
+  color: var(--secondary);
+}
+
+.pageBtn.active {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 98, 227, 0.25);
+}
+
+/* Botones anterior / siguiente */
+.navBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  background: transparent;
+  border: 1px solid #E2E8F0;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.navBtn:hover:not(:disabled) {
+  background: #F8FAFC;
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.navBtn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.dots {
+  padding: 0 0.25rem;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  user-select: none;
+}
