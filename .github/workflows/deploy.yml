@@ -1,0 +1,29 @@
+name: Deploy CoreCredential Frontend
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Despliegue en Homeserver
+    runs-on: self-hosted
+    steps:
+      - name: Actualizar código y reiniciar contenedor
+        run: |
+          echo "=============================================="
+          echo "🚀 Desplegando CoreCredential Frontend..."
+          echo "=============================================="
+          cd /home/jm/production/carnet-digital/proyectos/carnet-digital-deploy
+          
+          # Actualizar repositorio en frontend
+          echo "📥 Descargando últimos cambios de main..."
+          git -C frontend pull origin main
+          
+          # Reconstruir contenedor Docker sin afectar otros servicios
+          echo "🐳 Reconstruyendo carnet_digital_frontend_prod..."
+          docker compose up -d --build --no-deps carnet-digital-frontend
+          
+          echo "✅ Despliegue completado con éxito!"
